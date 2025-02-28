@@ -20,20 +20,23 @@
 
                 if (choice == "1")
                 {
-                    //Do option 1
                     Console.WriteLine("You chose option 1 - List of Integers");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
                 }
+
                 else if (choice == "2")
                 {
-                    // Do option 2
                     Console.WriteLine("You chose option 2 - List of Strings");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
                 }
 
-                else if
+                else if (choice == "q")
+                {
+                    Console.WriteLine("Thanks for playing!");
+                    return;
+                }
 
                 else
                 {
