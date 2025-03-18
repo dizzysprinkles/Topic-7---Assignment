@@ -15,7 +15,7 @@ namespace Topic_7___Assignment
             int maxOccur;
             int popularNum;
             int secondPopNum;
-            //int thirdPopNum;
+            int thirdPopNum;
             while (choice != "q")
             {
                 Console.Clear();
@@ -174,7 +174,7 @@ namespace Topic_7___Assignment
                         numbers.Sort();
                         popularNum = 0;
                         secondPopNum = 0;
-                        //thirdPopNum = 0;
+                        thirdPopNum = 0;   
                         for (int i = 1; i < numbers.Count; i++)
                         {
                             if (numbers[i] == numbers[i - 1])
@@ -190,11 +190,18 @@ namespace Topic_7___Assignment
                                 maxOccur = occurences;
                                 popularNum = numbers[i];
                             }
+
+
                             if (occurences == maxOccur)
                             {
                                 secondPopNum = numbers[i];
                             }
-                        }
+
+                            if (numbers[i] > secondPopNum && occurences == maxOccur)
+                            {
+                                thirdPopNum = numbers[i];
+                            }
+
                         if (secondPopNum == popularNum)
                         {
                             Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
