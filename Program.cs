@@ -14,10 +14,16 @@ namespace Topic_7___Assignment
                 
             string choice = "";
             int numberChoice;
+           
+            int maxOccur;
+            int popularNum;
+            int secondPopNum;
 
             while (choice != "q")
             {
                 Console.Clear();
+                int occurences = 0;
+                int average;
                 Console.WriteLine("Welcome to Topic 7 Part 1's Main Menu! Please select an option to try based on the following list of integers: ");
                 Console.WriteLine();
                 for (int i = 0; i < numbers.Count; i++)
@@ -56,8 +62,6 @@ namespace Topic_7___Assignment
                         Console.WriteLine();
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
-
                     }
 
                     else if (choice == "2") // New
@@ -123,12 +127,12 @@ namespace Topic_7___Assignment
                             Console.WriteLine("Invalid number. Try again!");
                         }
                         for (int i = 0; i < numbers.Count; i++)
-                            numbers.(numberChoice);
-                        numbers.Add(numberChoice);
-                        Console.WriteLine($"Here's the list with the new number: {numberChoice}");
-                        for (int i = 0; i < numbers.Count; i++)
-                            Console.Write(numbers[i] + ", ");
-                        Console.WriteLine();
+                            if (numbers[i].Equals(numberChoice))
+                            {
+                                occurences += 1;
+                               
+                            }
+                        Console.WriteLine($"The number {numberChoice} occurs {occurences} times!");
                         Console.WriteLine();
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
@@ -136,18 +140,82 @@ namespace Topic_7___Assignment
                     }
                     else if (choice == "6") // Largest
                     {
-
+                        Console.WriteLine("You've picked option 6 - Print the largest value.");
+                        Console.WriteLine("I will now tell you the largest value! ");
+                        numbers.Sort();
+                        Console.WriteLine($"The largest value is {numbers[numbers.Count - 1]}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to return to the Main Menu!");
+                        Console.ReadLine();
                     }
                     else if (choice == "7") // Smallest
                     {
+                        Console.WriteLine("You've picked option 7 - Print the smallest value.");
+                        Console.WriteLine("I will now tell you the smallest value! ");
+                        numbers.Sort();
+                        Console.WriteLine($"The smallest value is {numbers[0]}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to return to the Main Menu!");
+                        Console.ReadLine();
 
                     }
                     else if (choice == "8") // Sum and Average
                     {
+                        Console.WriteLine("You've picked option 8 - Print the sum and average of the list.");
+                        Console.WriteLine("I will now tell you the sum of the whole list! ");
+                        Console.WriteLine($"The sum of all {numbers.Count} numbers is {numbers.Sum()}.");
+                        average = numbers.Sum() / numbers.Count;
+                        Console.WriteLine($"The average is about {average}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to return to the Main Menu!");
+                        Console.ReadLine();
 
                     }
                     else if (choice == "9") // Most frequent #
                     {
+                        Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
+                        Console.WriteLine("");
+                        occurences = 1;
+                        maxOccur = 1;
+                        numbers.Sort();
+                        popularNum = 0;
+                        secondPopNum = 0;
+
+                        for (int i = 1; i < numbers.Count; i++)
+                        {
+                            if (numbers[i] == numbers[i - 1])
+                            {
+                                occurences+=1;
+                            }
+
+                            else
+                                occurences = 1;
+
+                            if (occurences > maxOccur)
+                            {
+                                maxOccur = occurences;
+                                popularNum = numbers[i];
+                            }
+
+                            if (occurences == maxOccur)
+                            {
+                                secondPopNum = numbers[i];
+                            }
+                        }
+
+                        if (secondPopNum == popularNum)
+                        {
+                            Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"The number {popularNum} and the number {secondPopNum} both occur {maxOccur} times!");
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine("Press ENTER to return to the Main Menu!");
+                        Console.ReadLine();
 
                     }
 
