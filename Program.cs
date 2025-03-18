@@ -18,6 +18,7 @@ namespace Topic_7___Assignment
             int maxOccur;
             int popularNum;
             int secondPopNum;
+            //int thirdPopNum;
 
             while (choice != "q")
             {
@@ -180,6 +181,7 @@ namespace Topic_7___Assignment
                         numbers.Sort();
                         popularNum = 0;
                         secondPopNum = 0;
+                        //thirdPopNum = 0;
 
                         for (int i = 1; i < numbers.Count; i++)
                         {
@@ -201,6 +203,7 @@ namespace Topic_7___Assignment
                             {
                                 secondPopNum = numbers[i];
                             }
+
                         }
 
                         if (secondPopNum == popularNum)
