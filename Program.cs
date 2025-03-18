@@ -8,18 +8,14 @@ namespace Topic_7___Assignment
         {
             Random generator = new Random();
             List<int> numbers = new List<int>();
-
             for (int i = 0; i < 25; i++)
                 numbers.Add(generator.Next(10, 21));
-                
             string choice = "";
             int numberChoice;
-           
             int maxOccur;
             int popularNum;
             int secondPopNum;
             //int thirdPopNum;
-
             while (choice != "q")
             {
                 Console.Clear();
@@ -64,7 +60,6 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-
                     else if (choice == "2") // New
                     {
                         Console.WriteLine("You've picked option 2 - Make a new list of random numbers.");
@@ -99,8 +94,6 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-
-                
                     else if (choice == "4") // Add #
                     {
                         Console.WriteLine("You've picked option 4 - Add a number to the list.");
@@ -182,30 +175,26 @@ namespace Topic_7___Assignment
                         popularNum = 0;
                         secondPopNum = 0;
                         //thirdPopNum = 0;
-
                         for (int i = 1; i < numbers.Count; i++)
                         {
                             if (numbers[i] == numbers[i - 1])
                             {
                                 occurences+=1;
                             }
-
                             else
+                            {
                                 occurences = 1;
-
+                            }
                             if (occurences > maxOccur)
                             {
                                 maxOccur = occurences;
                                 popularNum = numbers[i];
                             }
-
                             if (occurences == maxOccur)
                             {
                                 secondPopNum = numbers[i];
                             }
-
                         }
-
                         if (secondPopNum == popularNum)
                         {
                             Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
@@ -216,21 +205,15 @@ namespace Topic_7___Assignment
                             Console.WriteLine($"The number {popularNum} and the number {secondPopNum} both occur {maxOccur} times!");
                             Console.WriteLine();
                         }
-
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
                     }
-
                     else
                     {
                         Console.WriteLine("Invalid choice, press ENTER to continue.");
                         Console.ReadLine();
                     }
-
                 }
-
-                
             }
         }
     }
