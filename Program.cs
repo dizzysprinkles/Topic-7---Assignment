@@ -124,7 +124,7 @@ namespace Topic_7___Assignment
                             if (numbers[i].Equals(numberChoice))
                             {
                                 occurences += 1;
-                               
+
                             }
                         Console.WriteLine($"The number {numberChoice} occurs {occurences} times!");
                         Console.WriteLine();
@@ -169,52 +169,71 @@ namespace Topic_7___Assignment
                     {
                         Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
                         Console.WriteLine("");
+                        numbers.Sort();
                         occurences = 1;
                         maxOccur = 1;
-                        numbers.Sort();
                         popularNum = 0;
                         secondPopNum = 0;
-                        thirdPopNum = 0;   
+                        thirdPopNum = 0;
                         for (int i = 1; i < numbers.Count; i++)
                         {
                             if (numbers[i] == numbers[i - 1])
                             {
-                                occurences+=1;
+                                occurences += 1;
                             }
                             else
                             {
                                 occurences = 1;
                             }
+
                             if (occurences > maxOccur)
                             {
                                 maxOccur = occurences;
                                 popularNum = numbers[i];
                             }
-
-
-                            if (occurences == maxOccur)
+                            else if (secondPopNum == 0 && occurences == maxOccur)
                             {
                                 secondPopNum = numbers[i];
                             }
-
-                            if (numbers[i] > secondPopNum && occurences == maxOccur)
+                            else if (secondPopNum != 0 && occurences == maxOccur)
                             {
                                 thirdPopNum = numbers[i];
                             }
-
-                        if (secondPopNum == popularNum)
+                        }
+                        if (secondPopNum == popularNum && thirdPopNum == 0 || secondPopNum == 0 && thirdPopNum == 0)
                         {
                             Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
                             Console.WriteLine();
                         }
-                        else
+                        else if (thirdPopNum == 0 && secondPopNum != 0)
                         {
                             Console.WriteLine($"The number {popularNum} and the number {secondPopNum} both occur {maxOccur} times!");
                             Console.WriteLine();
                         }
+                        else if (thirdPopNum != 0)
+                        {
+
+                            Console.WriteLine($"The number {popularNum}, the number {secondPopNum}, and the number {thirdPopNum} all occur {maxOccur} times!");
+                            Console.WriteLine();
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Something goes here..");
+                        }
+
+
+
+
+
+
+                        Console.WriteLine($"TESTINGGGGGGGG {popularNum}, the number {secondPopNum}, and the number {thirdPopNum} all occur {maxOccur} times!");
+                        
+                        Console.WriteLine();
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
+
                     else
                     {
                         Console.WriteLine("Invalid choice, press ENTER to continue.");
