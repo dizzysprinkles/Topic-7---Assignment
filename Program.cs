@@ -191,21 +191,22 @@ namespace Topic_7___Assignment
                                 maxOccur = occurences;
                                 popularNum = numbers[i];
                             }
-                            else if (secondPopNum == 0 && occurences == maxOccur)
-                            {
-                                secondPopNum = numbers[i];
-                            }
                             else if (secondPopNum != 0 && occurences == maxOccur)
                             {
                                 thirdPopNum = numbers[i];
+                                secondPopNum = numbers[i];
+                            }
+                            else if (occurences == maxOccur)
+                            {
+                                secondPopNum = numbers[i];
                             }
                         }
-                        if (secondPopNum == popularNum && thirdPopNum == 0 || secondPopNum == 0 && thirdPopNum == 0)
+                        if (secondPopNum == popularNum && thirdPopNum == 0 || secondPopNum == 0 && thirdPopNum == 0 || secondPopNum == popularNum && popularNum == thirdPopNum)
                         {
                             Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
                             Console.WriteLine();
                         }
-                        else if (thirdPopNum == 0 && secondPopNum != 0)
+                        else if (thirdPopNum == 0 && secondPopNum != 0 || secondPopNum == thirdPopNum)
                         {
                             Console.WriteLine($"The number {popularNum} and the number {secondPopNum} both occur {maxOccur} times!");
                             Console.WriteLine();
@@ -221,10 +222,6 @@ namespace Topic_7___Assignment
                         {
                             Console.WriteLine("Something goes here..");
                         }
-
-
-
-
 
 
                         Console.WriteLine($"TESTINGGGGGGGG {popularNum}, the number {secondPopNum}, and the number {thirdPopNum} all occur {maxOccur} times!");
