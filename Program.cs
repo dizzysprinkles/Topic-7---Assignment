@@ -53,7 +53,7 @@ namespace Topic_7___Assignment
                 }
                 else
                 {
-                    if (choice == "1") // Sort
+                    if (choice == "1") 
                     {
                         Console.WriteLine("You've picked option 1 - Sort the list.");
                         Console.WriteLine("I will now sort the list! ");
@@ -71,7 +71,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-                    else if (choice == "2") // New
+                    else if (choice == "2") 
                     {
                         Console.WriteLine("You've picked option 2 - Make a new list of random numbers.");
                         Console.WriteLine("I will now make a new list just for you! ");
@@ -91,7 +91,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-                    else if (choice == "3") // Remove
+                    else if (choice == "3")
                     {
                         Console.WriteLine("You've picked option 3 - Remove a number");
                         Console.WriteLine("Which number would you like me to remove?  ");
@@ -127,7 +127,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-                    else if (choice == "4") // Add #
+                    else if (choice == "4")
                     {
                         Console.WriteLine("You've picked option 4 - Add a number to the list.");
                         Console.WriteLine("Which number would you like me to add?");
@@ -153,7 +153,7 @@ namespace Topic_7___Assignment
                         Console.ReadLine();
 
                     }
-                    else if (choice == "5") // # of Occurences
+                    else if (choice == "5")
                     {
                         Console.WriteLine("You've picked option 5 - Count the number of occurences of a number ");
                         Console.WriteLine("Which number would you like me to count the occurences of?");
@@ -189,7 +189,7 @@ namespace Topic_7___Assignment
                         Console.ReadLine();
 
                     }
-                    else if (choice == "6") // Largest
+                    else if (choice == "6")
                     {
                         Console.WriteLine("You've picked option 6 - Print the largest value.");
                         Console.WriteLine("I will now tell you the largest value! ");
@@ -201,7 +201,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-                    else if (choice == "7") // Smallest
+                    else if (choice == "7")
                     {
                         Console.WriteLine("You've picked option 7 - Print the smallest value.");
                         Console.WriteLine("I will now tell you the smallest value! ");
@@ -214,7 +214,7 @@ namespace Topic_7___Assignment
                         Console.ReadLine();
 
                     }
-                    else if (choice == "8") // Sum and Average
+                    else if (choice == "8")
                     {
                         Console.WriteLine("You've picked option 8 - Print the sum and average of the list.");
                         Console.WriteLine("I will now tell you the sum of the whole list! ");
