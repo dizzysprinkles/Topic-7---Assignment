@@ -14,9 +14,6 @@ namespace Topic_7___Assignment
             string choice = "";
             int numberChoice;
             int maxOccur;
-            int popularNum;                                                                                                                      
-            int secondPopNum;
-            int thirdPopNum;
             while (choice != "q")
             {
                 Console.Clear();
@@ -229,39 +226,33 @@ namespace Topic_7___Assignment
                         Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
                         Console.WriteLine();
                         numbers.Sort();
-                       
-                        maxOccur = 1;
-                        Dictionary<int, int> popularity = new Dictionary<int, int>(); //like a virtual table that can help quickly look up values based on their keys
 
-                        //counts occurences of numbers
-                        for (int i = 1; i < numbers.Count; i++)
-                        {
-                            if (popularity.ContainsKey(numbers[i]))
-                            {
-                                popularity[numbers[i]]++;
-                            }
-                            else
-                            {
-                                popularity[numbers[i]] = 1;
-                            }
-                        }
-
+                        occurences = 1;
                         maxOccur = 0;
                         List<int> mostPopularNum = new List<int>();
 
-                        //finds the most popular
-                        foreach (var entry in popularity)
+                        for (int i = 1; i < numbers.Count; i++)
                         {
-                            if (entry.Value > maxOccur)
+                            if (numbers[i] == numbers[i - 1])
                             {
-                                maxOccur = entry.Value;
+                                occurences += 1;
+                            }
+                            else
+                            {
+                                occurences = 1;
+                            }
+
+                            if (occurences > maxOccur)
+                            {
+                                maxOccur = occurences;
                                 mostPopularNum.Clear();
-                                mostPopularNum.Add(entry.Key);
+                                mostPopularNum.Add(numbers[i]);
                             }
-                            else if (entry.Value == maxOccur)
+                            else if (occurences == maxOccur)
                             {
-                                mostPopularNum.Add(entry.Key);
+                                mostPopularNum.Add(numbers[i]);
                             }
+
                         }
                         Console.WriteLine($"The most frequent number(s) are/is: " + String.Join(", ", mostPopularNum) + $". \nThose number(s) appear {maxOccur} times! ");
                         Console.WriteLine();
