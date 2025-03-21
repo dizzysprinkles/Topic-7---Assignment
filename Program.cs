@@ -119,7 +119,6 @@ namespace Topic_7___Assignment
                             Console.WriteLine($"The list does not contain {numberChoice}, therefore it was not removed.");
                             Console.WriteLine();
                         }
-
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
@@ -147,7 +146,6 @@ namespace Topic_7___Assignment
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
                     }
                     else if (choice == "5")
                     {
@@ -179,11 +177,9 @@ namespace Topic_7___Assignment
                             Console.WriteLine($"Sorry but the list does not contain {numberChoice}. It occurs 0 times.");
                             Console.WriteLine();
                         }
-                   
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
                     }
                     else if (choice == "6")
                     {
@@ -208,7 +204,6 @@ namespace Topic_7___Assignment
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
                     }
                     else if (choice == "8")
                     {
@@ -223,9 +218,8 @@ namespace Topic_7___Assignment
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
-
                     }
-                    else if (choice == "9") // Most frequent #
+                    else if (choice == "9")
                     {
                         Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
                         Console.WriteLine();
@@ -253,7 +247,6 @@ namespace Topic_7___Assignment
                             {
                                 mostPopularNum.Add(numbers[i]);
                             }
-
                         }
                         Console.WriteLine($"The most frequent number(s) are/is: " + String.Join(", ", mostPopularNum) + $". \nThose number(s) appear {maxOccur} times! ");
                         Console.WriteLine();
@@ -261,7 +254,6 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Press ENTER to return to the Main Menu!");
                         Console.ReadLine();
                     }
-
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Magenta;
