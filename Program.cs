@@ -8,17 +8,21 @@ namespace Topic_7___Assignment
         static void Main(string[] args)
         {
             Random generator = new Random();
+
             List<int> numbers = new List<int>();
+
             for (int i = 0; i < 25; i++)
                 numbers.Add(generator.Next(10, 21));
+
             string choice = "";
-            int numberChoice;
-            int maxOccur;
+            int numberChoice, maxOccur, occurences, average;
+
+            List<int> mostPopularNum = new List<int>();
+
             while (choice != "q")
             {
                 Console.Clear();
-                int occurences = 0;
-                int average;
+                occurences = 0;
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("Welcome to Topic 7 Part 1's Main Menu! Please select an option to try based on the following list of integers: ");
                 Console.WriteLine();
@@ -226,11 +230,8 @@ namespace Topic_7___Assignment
                         Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
                         Console.WriteLine();
                         numbers.Sort();
-
                         occurences = 1;
                         maxOccur = 0;
-                        List<int> mostPopularNum = new List<int>();
-
                         for (int i = 1; i < numbers.Count; i++)
                         {
                             if (numbers[i] == numbers[i - 1])
