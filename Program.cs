@@ -26,8 +26,7 @@ namespace Topic_7___Assignment
                 Console.WriteLine("Welcome to Topic 7 Part 1's Main Menu! Please select an option to try based on the following list of integers: ");
                 Console.WriteLine();
                 Console.ForegroundColor= ConsoleColor.DarkYellow;
-                for (int i = 0; i < numbers.Count; i++)
-                    Console.Write(numbers[i] + ", ");
+                Console.Write(String.Join(", ", numbers));
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine();
                 Console.WriteLine();
@@ -40,7 +39,7 @@ namespace Topic_7___Assignment
                 Console.WriteLine("6 - Print the largest value");
                 Console.WriteLine("7 - Print the smallest value");
                 Console.WriteLine("8 - Print the sum and the average of the list");
-                //Console.WriteLine("9 - Determine the most frequent number");
+                Console.WriteLine("9 - Determine the most frequent number");
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
                 Console.ForegroundColor= ConsoleColor.White;
@@ -62,8 +61,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Here is the new and improved sorted list!");
                         Console.WriteLine();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        for (int i = 0; i < numbers.Count; i++)
-                            Console.Write(numbers[i] + ", ");
+                        Console.Write(String.Join(", ", numbers));
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                         Console.WriteLine();
@@ -82,8 +80,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine("Here is the new and improved list!");
                         Console.WriteLine();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        for (int i = 0; i < numbers.Count; i++)
-                            Console.Write(numbers[i] + ", ");
+                        Console.Write(String.Join(", ", numbers));
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                         Console.WriteLine();
@@ -110,8 +107,7 @@ namespace Topic_7___Assignment
                             Console.WriteLine($"Here is the new and improved list without {numberChoice}!");
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine();
-                            for (int i = 0; i < numbers.Count; i++)
-                                Console.Write(numbers[i] + ", ");
+                            Console.Write(String.Join(", ", numbers));
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             Console.WriteLine();
@@ -143,8 +139,7 @@ namespace Topic_7___Assignment
                         Console.WriteLine($"Here's the list with the new number: {numberChoice}");
                         Console.WriteLine();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        for (int i = 0; i < numbers.Count; i++)
-                            Console.Write(numbers[i] + ", ");
+                        Console.Write(String.Join(", ", numbers));
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                         Console.WriteLine();
@@ -229,72 +224,51 @@ namespace Topic_7___Assignment
                         Console.ReadLine();
 
                     }
-                    //else if (choice == "9") // Most frequent #
-                    //{
-                    //    Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
-                    //    Console.WriteLine();
-                    //    numbers.Sort();
-                    //    occurences = 1;
-                    //    maxOccur = 1;
-                    //    popularNum = 0;
-                    //    secondPopNum = 0;
-                    //    thirdPopNum = 0;
-                    //    for (int i = 1; i < numbers.Count; i++)
-                    //    {
-                    //        if (numbers[i] == numbers[i - 1])
-                    //        {
-                    //            occurences += 1;
-                    //        }
-                    //        else
-                    //        {
-                    //            occurences = 1;
-                    //        }
+                    else if (choice == "9") // Most frequent #
+                    {
+                        Console.WriteLine("You've picked option 9 - Determine the most frequent number ");
+                        Console.WriteLine();
+                        numbers.Sort();
+                       
+                        maxOccur = 1;
+                        Dictionary<int, int> popularity = new Dictionary<int, int>(); //like a virtual table that can help quickly look up values based on their keys
 
-                    //        if (occurences > maxOccur)
-                    //        {
-                    //            maxOccur = occurences;
-                    //            popularNum = numbers[i];
-                    //        }
-                    //        else if (secondPopNum != 0 && occurences == maxOccur)
-                    //        {
-                    //            thirdPopNum = numbers[i];
-                    //            secondPopNum = numbers[i];
-                    //        }
-                    //        else if (occurences == maxOccur)
-                    //        {
-                    //            secondPopNum = numbers[i];
-                    //        }
-                    //    }
-                    //    if (secondPopNum == popularNum && thirdPopNum == 0 || secondPopNum == 0 && thirdPopNum == 0 || secondPopNum == popularNum && popularNum == thirdPopNum)
-                    //    {
-                    //        Console.WriteLine($"The number {popularNum} occurs {maxOccur} times!");
-                    //        Console.WriteLine();
-                    //    }
-                    //    else if (thirdPopNum == 0 && secondPopNum != 0 || secondPopNum == thirdPopNum)
-                    //    {
-                    //        Console.WriteLine($"The number {popularNum} and the number {secondPopNum} both occur {maxOccur} times!");
-                    //        Console.WriteLine();
-                    //    }
-                    //    else if (thirdPopNum != 0)
-                    //    {
+                        //counts occurences of numbers
+                        for (int i = 1; i < numbers.Count; i++)
+                        {
+                            if (popularity.ContainsKey(numbers[i]))
+                            {
+                                popularity[numbers[i]]++;
+                            }
+                            else
+                            {
+                                popularity[numbers[i]] = 1;
+                            }
+                        }
 
-                    //        Console.WriteLine($"The number {popularNum}, the number {secondPopNum}, and the number {thirdPopNum} all occur {maxOccur} times!");
-                    //        Console.WriteLine();
+                        maxOccur = 0;
+                        List<int> mostPopularNum = new List<int>();
 
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Something goes here..");
-                    //    }
-
-
-                    //    Console.WriteLine($"TESTINGGGGGGGG {popularNum}, the number {secondPopNum}, and the number {thirdPopNum} all occur {maxOccur} times!");
-                        
-                    //    Console.WriteLine();
-                    //    Console.ForegroundColor = ConsoleColor.Magenta;
-                    //    Console.WriteLine("Press ENTER to return to the Main Menu!");
-                    //    Console.ReadLine();
-                    //}
+                        //finds the most popular
+                        foreach (var entry in popularity)
+                        {
+                            if (entry.Value > maxOccur)
+                            {
+                                maxOccur = entry.Value;
+                                mostPopularNum.Clear();
+                                mostPopularNum.Add(entry.Key);
+                            }
+                            else if (entry.Value == maxOccur)
+                            {
+                                mostPopularNum.Add(entry.Key);
+                            }
+                        }
+                        Console.WriteLine($"The most frequent number(s) are/is: " + String.Join(", ", mostPopularNum) + $". \nThose number(s) appear {maxOccur} times! ");
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Press ENTER to return to the Main Menu!");
+                        Console.ReadLine();
+                    }
 
                     else
                     {
